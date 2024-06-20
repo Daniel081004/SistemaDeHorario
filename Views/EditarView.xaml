@@ -3,83 +3,195 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" Background="#021c4a"
-xmlns:sys="clr-namespace:System;assembly=mscorlib"
-xmlns:local="clr-namespace:SistemaDeHorario.Views" xmlns:viewmodels="clr-namespace:SistemaDeHorario.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HorarioViewModel}"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+            xmlns:sys="clr-namespace:System;assembly=mscorlib"
+            xmlns:local="clr-namespace:SistemaDeHorario.Views" xmlns:viewmodels="clr-namespace:SistemaDeHorario.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HorarioViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel Orientation="Vertical">
-            <StackPanel.Style>
-                <Style TargetType="StackPanel">
-                    <Setter Property="Visibility" Value="Hidden"></Setter>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ActividadClase}" Value="Actividad">
-                            <Setter Property="Visibility" Value="Visible"></Setter>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </StackPanel.Style>
-            <Label Foreground="White">Actividad:</Label>
-            <TextBox Text="{Binding Horario.Descripcion}"></TextBox>
-            <Label Foreground="White">Dia:</Label>
-            <ComboBox Text="{Binding Horario.Dia}">
-                <ComboBoxItem>Lunes</ComboBoxItem>
-                <ComboBoxItem>Martes</ComboBoxItem>
-                <ComboBoxItem>Miercoles</ComboBoxItem>
-                <ComboBoxItem>Jueves</ComboBoxItem>
-                <ComboBoxItem>Viernes</ComboBoxItem>
-                <ComboBoxItem>Sabado</ComboBoxItem>
-                <ComboBoxItem>Domingo</ComboBoxItem>
-            </ComboBox>
-            <Label Foreground="White">Hora Inicio</Label>
-            <xctk:IntegerUpDown Text="{Binding Horario.HoraInicio}"/>
-            <Label Foreground="White">Hora Fin</Label>
-            <xctk:IntegerUpDown Text="{Binding Horario.HoraFin}"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Guardar" Command="{Binding EditarActividadCommand}" Height="40" Width="120" Margin="5"></Button>
-                <Button Content="Cancelar" Command="{Binding VerHorarioCommand}" Height="40" Width="120" Margin="5"></Button>
-            </StackPanel>
-            <TextBlock Text="{Binding Error}" Margin="5" Foreground="Red" FontSize="10"></TextBlock>
-        </StackPanel>
+    <UserControl.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="Yellow" Offset="0.0"/>
+                <GradientStop Color="Red" Offset="1.0"/>
+            </LinearGradientBrush>
+        </UserControl.Background>
+        <ScrollViewer Margin="10">
+        <Grid>
+            <StackPanel Orientation="Vertical">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ActividadClase}" Value="Actividad">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
 
-        <StackPanel Orientation="Vertical">
-            <StackPanel.Style>
-                <Style TargetType="StackPanel">
-                    <Setter Property="Visibility" Value="Hidden"></Setter>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ActividadClase}" Value="Clase">
-                            <Setter Property="Visibility" Value="Visible"></Setter>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </StackPanel.Style>
-            <Label Foreground="White">Asignatura:</Label>
-            <TextBox Text="{Binding Horario.NombreAsignatura}"></TextBox>
-            <Label Foreground="White">Maestro:</Label>
-            <TextBox Text="{Binding Horario.NombreMaestro}"></TextBox>
-            <Label Foreground="White">Aula:</Label>
-            <TextBox Text="{Binding Horario.Aula}"></TextBox>
-            <Label Foreground="White">Dia:</Label>
-            <ComboBox Text="{Binding Horario.Dia}">
-                <ComboBoxItem>Lunes</ComboBoxItem>
-                <ComboBoxItem>Martes</ComboBoxItem>
-                <ComboBoxItem>Miercoles</ComboBoxItem>
-                <ComboBoxItem>Jueves</ComboBoxItem>
-                <ComboBoxItem>Viernes</ComboBoxItem>
-                <ComboBoxItem>Sabado</ComboBoxItem>
-                <ComboBoxItem>Domingo</ComboBoxItem>
-            </ComboBox>
-            <Label Foreground="White">Hora Inicio</Label>
-            <xctk:IntegerUpDown Text="{Binding Horario.HoraInicio}"/>
-            <Label Foreground="White">Hora Fin</Label>
-            <xctk:IntegerUpDown Text="{Binding Horario.HoraFin}"/>
+                <TextBlock FontWeight="Black" FontSize="80" Margin="15" HorizontalAlignment="Center">Editar Una Actividad
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Guardar" Command="{Binding EditarClaseCommand}" Height="40" Width="120" Margin="5"></Button>
-                <Button Content="Cancelar" Command="{Binding VerHorarioCommand}" Height="40" Width="120" Margin="5"></Button>
+                <TextBlock FontSize="30" FontWeight="Black">Actividad:
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBox FontSize="30" FontWeight="Bold" Text="{Binding Horario.Descripcion}"></TextBox>
+                <TextBlock FontSize="30" FontWeight="Black">Dia:
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <ComboBox FontSize="30" FontWeight="Bold" Text="{Binding Horario.Dia}">
+                    <ComboBoxItem>Lunes</ComboBoxItem>
+                    <ComboBoxItem>Martes</ComboBoxItem>
+                    <ComboBoxItem>Miercoles</ComboBoxItem>
+                    <ComboBoxItem>Jueves</ComboBoxItem>
+                    <ComboBoxItem>Viernes</ComboBoxItem>
+                    <ComboBoxItem>Sabado</ComboBoxItem>
+                    <ComboBoxItem>Domingo</ComboBoxItem>
+                </ComboBox>
+                <TextBlock FontSize="30" FontWeight="Black">Hora Inicio:
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <xctk:IntegerUpDown FontSize="30" TextAlignment="Left"  FontWeight="Bold" Text="{Binding Horario.HoraInicio}"/>
+                <TextBlock FontWeight="Black" FontSize="30">Hora Fin:
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <xctk:IntegerUpDown FontSize="30" TextAlignment="Left" FontWeight="Bold" Text="{Binding Horario.HoraFin}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Background="DarkGreen" Foreground="LightGreen" FontSize="35" FontWeight="Bold" Content="Guardar" Command="{Binding EditarActividadCommand}" Height="80" Width="165" Margin="20"></Button>
+                    <Button Background="Black" Foreground="White" FontSize="35" FontWeight="Bold" Content="Cancelar" Command="{Binding VerHorarioCommand}" Height="80" Width="165" Margin="20"></Button>
+                </StackPanel>
+                <TextBlock FontStyle="Italic" HorizontalAlignment="Center" Text="{Binding Error}" FontSize="25">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Blue" Offset="0.0"/>
+                            <GradientStop Color="DarkBlue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <Image Source="https://static.vecteezy.com/system/resources/previews/023/366/398/non_2x/cute-thai-boxing-kids-fighting-actions-png.png" Width="450"></Image>
             </StackPanel>
-            <TextBlock Text="{Binding Error}" Margin="5" Foreground="Red" FontSize="10"></TextBlock>
-        </StackPanel>
-    </Grid>
+
+            <StackPanel Orientation="Vertical">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ActividadClase}" Value="Clase">
+                                <Setter Property="Visibility" Value="Visible"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+                <TextBlock FontWeight="Black" FontSize="80" Margin="15" HorizontalAlignment="Center">Editar Una Clase
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBlock FontWeight="Black" FontSize="30" Text="Asignatura:">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBox FontWeight="Bold" FontSize="30" Text="{Binding Horario.NombreAsignatura}"></TextBox>
+                <TextBlock FontSize="30" FontWeight="Black" Text="Maestro:">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBox FontWeight="Bold" FontSize="30" Text="{Binding Horario.NombreMaestro}"></TextBox>
+                <TextBlock FontSize="30" FontWeight="Black">Aula:
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <TextBox FontWeight="Bold" FontSize="30" Text="{Binding Horario.Aula}"></TextBox>
+                <TextBlock FontSize="30" FontWeight="Black">Dia:
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <ComboBox FontWeight="Bold" FontSize="30" Text="{Binding Horario.Dia}">
+                    <ComboBoxItem>Lunes</ComboBoxItem>
+                    <ComboBoxItem>Martes</ComboBoxItem>
+                    <ComboBoxItem>Miercoles</ComboBoxItem>
+                    <ComboBoxItem>Jueves</ComboBoxItem>
+                    <ComboBoxItem>Viernes</ComboBoxItem>
+                    <ComboBoxItem>Sabado</ComboBoxItem>
+                    <ComboBoxItem>Domingo</ComboBoxItem>
+                </ComboBox>
+                <TextBlock FontSize="30" FontWeight="Black">Hora Inicio:
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <xctk:IntegerUpDown FontWeight="Bold" TextAlignment="Left" FontSize="30" Text="{Binding Horario.HoraInicio}"/>
+                <TextBlock FontSize="30" FontWeight="Black">Hora Fin:
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Red" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <xctk:IntegerUpDown FontWeight="Bold" TextAlignment="Left" FontSize="30" Text="{Binding Horario.HoraFin}"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Background="DarkGreen" Foreground="LightGreen" FontSize="35" FontWeight="Bold" Content="Guardar" Command="{Binding EditarClaseCommand}" Height="80" Width="165" Margin="20"></Button>
+                    <Button Background="Black" Foreground="White" FontSize="35" FontWeight="Bold" Content="Cancelar" Command="{Binding VerHorarioCommand}" Height="80" Width="165" Margin="20"></Button>
+                </StackPanel>
+                <TextBlock FontStyle="Italic" HorizontalAlignment="Center" Text="{Binding Error}" FontSize="23">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="Blue" Offset="0.0"/>
+                            <GradientStop Color="DarkBlue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <Image Source="https://www.imageneseducativas.com/wp-content/uploads/2015/03/matematicas.gif" Width="450"></Image>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </UserControl>

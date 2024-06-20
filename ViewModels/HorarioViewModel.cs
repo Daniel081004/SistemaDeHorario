@@ -1,16 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using SistemaDeHorario.Models;
 using SistemaDeHorario.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SistemaDeHorario.ViewModels
 {
@@ -84,6 +77,10 @@ namespace SistemaDeHorario.ViewModels
                 if (Horario.HoraInicio == Horario.HoraFin)
                 {
                     Error += "La actividad no dura ni siquiera una hora\n";
+                }
+                if( Horario.HoraFin > 23)
+                {
+                    Error += "Las horas deben de estar en formato de 24 horas\n";
                 }
 
                 ObservableCollection<Horario> Lista;
@@ -172,6 +169,10 @@ namespace SistemaDeHorario.ViewModels
                 if (Horario.HoraInicio == Horario.HoraFin)
                 {
                     Error += "La clase no dura ni siquiera una hora\n";
+                }
+                if (Horario.HoraFin > 23)
+                {
+                    Error += "Las horas deben de estar en formato de 24 horas\n";
                 }
 
                 ObservableCollection<Horario> Lista;
@@ -330,6 +331,10 @@ namespace SistemaDeHorario.ViewModels
                 {
                     Error += "La clase no dura ni siquiera una hora\n";
                 }
+                if (Horario.HoraFin > 23)
+                {
+                    Error += "Las horas deben de estar en formato de 24 horas\n";
+                }
 
                 ObservableCollection<Horario> Lista;
 
@@ -406,6 +411,10 @@ namespace SistemaDeHorario.ViewModels
                 {
                     Error += "La actividad no dura ni siquiera una hora\n";
                 }
+                if (Horario.HoraFin > 23)
+                {
+                    Error += "Las horas deben de estar en formato de 24 horas\n";
+                }
 
                 ObservableCollection<Horario> Lista;
 
@@ -473,13 +482,10 @@ namespace SistemaDeHorario.ViewModels
         private void VerAgregar()
         {
             ModoInteraccion = "";
-            PropertyChanged?.Invoke(this, new(null));
             Horario = new();
             Error = "";
             Vista = "Agregar";
-            Actualizar(Vista);
-            Actualizar(Error);
-            PropertyChanged?.Invoke(this, new(nameof(Horario)));
+            PropertyChanged?.Invoke(this, new(null));
         }
 
         private void MostrarDatos()

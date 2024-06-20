@@ -5,10 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SistemaDeHorario.Views"
              xmlns:viewmodel="clr-namespace:SistemaDeHorario.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodel:HorarioViewModel}"
-             mc:Ignorable="d" Background="#021c4a" x:Name="Pantalla"
+             mc:Ignorable="d" x:Name="Pantalla"
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Button Command="{Binding VerAgregarCommand}" Width="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent">
+    <UserControl.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#021c4a" Offset="0.0"/>
+            <GradientStop Color="BlueViolet" Offset="1.0"/>
+        </LinearGradientBrush>
+    </UserControl.Background>
+    <Grid Margin="10">
+        <Button Command="{Binding VerAgregarCommand}" Width="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Transparent">
             <Image Source="https://static-00.iconduck.com/assets.00/plus-icon-2048x2048-z6v59bd6.png"></Image>
         </Button>
         <DockPanel>
@@ -22,16 +28,65 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Margin="3" Background="#2487b5" Grid.Column="0">Lunes</Label>
-                <Label Margin="3" Background="#2487b5" Grid.Column="1">Martes</Label>
-                <Label Margin="3" Background="#2487b5" Grid.Column="2">Miercoles</Label>
-                <Label Margin="3" Background="#2487b5" Grid.Column="3">Jueves</Label>
-                <Label Margin="3" Background="#2487b5" Grid.Column="4">Viernes</Label>
-                <Label Margin="3" Background="#2487b5" Grid.Column="5">Sabado</Label>
-                <Label Margin="3" Background="#2487b5" Grid.Column="6">Domingo</Label>
+                <TextBlock FontSize="20" FontWeight="Black" Margin="3" Foreground="DarkGray" Grid.Column="0">Lunes
+                    <TextBlock.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Blue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <TextBlock FontSize="20" FontWeight="Black" Margin="3" Foreground="DarkGray" Grid.Column="1">Martes
+                    <TextBlock.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Blue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <TextBlock FontSize="20" FontWeight="Black" Margin="3" Foreground="DarkGray" Grid.Column="2">Miercoles
+                    <TextBlock.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Blue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <TextBlock FontSize="20" FontWeight="Black" Margin="3" Foreground="DarkGray" Grid.Column="3">Jueves
+                    <TextBlock.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Blue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <TextBlock FontSize="20" FontWeight="Black" Margin="3" Foreground="DarkGray" Grid.Column="4">Viernes
+                    <TextBlock.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Blue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <TextBlock FontSize="20" FontWeight="Black" Margin="3" Foreground="DarkGray" Grid.Column="5">Sabado
+                    <TextBlock.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Blue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
+                <TextBlock FontSize="20" FontWeight="Black" Margin="3" Foreground="DarkGray" Grid.Column="6">Domingo
+                    <TextBlock.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="DarkBlue" Offset="0.0"/>
+                            <GradientStop Color="Blue" Offset="1.0"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Background>
+                </TextBlock>
             </Grid>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Bottom">
-                <Button Margin="7" Height="40" Width="120" Content="Editar" Command="{Binding ModoEditarCommand}">
+                <Button FontWeight="Bold" FontSize="25" Margin="15" Height="60" Width="140" Content="Editar" Command="{Binding ModoEditarCommand}">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Style.Triggers>
@@ -43,7 +98,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Margin="7" Height="40" Width="120" Content="Eliminar" Command="{Binding ModoEliminarCommand}">
+                <Button FontSize="25" FontWeight="Bold" Margin="15" Height="60" Width="140" Content="Eliminar" Command="{Binding ModoEliminarCommand}">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Style.Triggers>
@@ -56,7 +111,6 @@
                     </Button.Style>
                 </Button>
             </StackPanel>
-
             <Grid DockPanel.Dock="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -67,406 +121,530 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <ItemsControl Margin="3" Grid.Column="0" ItemsSource="{Binding Lunes}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Center" Margin="0,3" Background="#7eadbf" Height="80">
-                                <StackPanel.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"/>
-                                </StackPanel.InputBindings>
+                <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl Margin="3" ItemsSource="{Binding Lunes}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,3" CornerRadius="10" Padding="3" BorderThickness="5" BorderBrush="#bc712d">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#7EADBF" Offset="0.0"/>
+                                            <GradientStop Color="#F2D1B3" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" Height="auto">
+                                        <StackPanel.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"></MouseBinding>
+                                        </StackPanel.InputBindings>
+                                        
 
-                                <TextBlock Text="{Binding Descripcion}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreAsignatura}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreMaestro}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding Aula}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
 
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <ItemsControl Margin="3" Grid.Column="1" ItemsSource="{Binding Martes}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Center" Margin="0,3" Background="#7eadbf" Height="80">
-                                <StackPanel.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"/>
-                                </StackPanel.InputBindings>
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding Descripcion}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Descripcion}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
 
-                                <TextBlock Text="{Binding Descripcion}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreAsignatura}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreMaestro}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding Aula}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <ItemsControl Margin="3" Grid.Column="2" ItemsSource="{Binding Miercoles}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Center" Margin="0,3" Background="#7eadbf" Height="80">
-                                <StackPanel.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"/>
-                                </StackPanel.InputBindings>
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding NombreAsignatura}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
 
-                                <TextBlock Text="{Binding Descripcion}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreAsignatura}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreMaestro}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding Aula}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <ItemsControl Margin="3" Grid.Column="3" ItemsSource="{Binding Jueves}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Center" Margin="0,3" Background="#7eadbf" Height="80">
-                                <StackPanel.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"/>
-                                </StackPanel.InputBindings>
+                                        <TextBlock FontSize="17.5" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding NombreMaestro}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
 
-                                <TextBlock Text="{Binding Descripcion}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreAsignatura}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreMaestro}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding Aula}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <ItemsControl Margin="3" Grid.Column="4" ItemsSource="{Binding Viernes}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Center" Margin="0,3" Background="#7eadbf" Height="80">
-                                <StackPanel.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"/>
-                                </StackPanel.InputBindings>
+                                        <TextBlock FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding Aula}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
 
-                                <TextBlock Text="{Binding Descripcion}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreAsignatura}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreMaestro}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding Aula}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <ItemsControl Margin="3" Grid.Column="5" ItemsSource="{Binding Sabado}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Center" Margin="0,3" Background="#7eadbf" Height="80">
-                                <StackPanel.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"/>
-                                </StackPanel.InputBindings>
+                                        <TextBlock Foreground="blue" FontSize="15" FontStyle="Italic" FontWeight="Bold" TextWrapping="Wrap"><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
 
-                                <TextBlock Text="{Binding Descripcion}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreAsignatura}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreMaestro}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding Aula}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-                <ItemsControl Margin="3" Grid.Column="6" ItemsSource="{Binding Domingo}">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel VerticalAlignment="Center" Margin="0,3" Background="#7eadbf" Height="80">
-                                <StackPanel.InputBindings>
-                                    <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"/>
-                                </StackPanel.InputBindings>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+                <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl Margin="3" ItemsSource="{Binding Martes}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,3" CornerRadius="10" Padding="3" BorderThickness="5" BorderBrush="#bc712d">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#7EADBF" Offset="0.0"/>
+                                            <GradientStop Color="#F2D1B3" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" Height="auto">
+                                        <StackPanel.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"></MouseBinding>
+                                        </StackPanel.InputBindings>
 
-                                <TextBlock Text="{Binding Descripcion}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreAsignatura}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding NombreMaestro}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock Text="{Binding Aula}" Visibility="Visible">
-                                    <TextBlock.Style>
-                                        <Style TargetType="TextBlock">
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding Descripcion}" Value="">
-                                                    <Setter Property="Visibility" Value="Collapsed"></Setter>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </TextBlock.Style>
-                                </TextBlock>
-                                <TextBlock><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding Descripcion}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Descripcion}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding NombreAsignatura}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="17.5" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding NombreMaestro}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding Aula}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="blue" FontSize="15" FontStyle="Italic" FontWeight="Bold" TextWrapping="Wrap"><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
+
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </ScrollViewer>
+                <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl Margin="3" ItemsSource="{Binding Miercoles}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,3" CornerRadius="10" Padding="3" BorderThickness="5" BorderBrush="#bc712d">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#7EADBF" Offset="0.0"/>
+                                            <GradientStop Color="#F2D1B3" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" Height="auto">
+                                        <StackPanel.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"></MouseBinding>
+                                        </StackPanel.InputBindings>
+
+
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding Descripcion}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Descripcion}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding NombreAsignatura}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="17.5" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding NombreMaestro}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding Aula}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="blue" FontSize="15" FontStyle="Italic" FontWeight="Bold" TextWrapping="Wrap"><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
+
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </ScrollViewer>
+                <ScrollViewer Grid.Column="3" VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl Margin="3" ItemsSource="{Binding Jueves}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,3" CornerRadius="10" Padding="3" BorderThickness="5" BorderBrush="#bc712d">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#7EADBF" Offset="0.0"/>
+                                            <GradientStop Color="#F2D1B3" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" Height="auto">
+                                        <StackPanel.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"></MouseBinding>
+                                        </StackPanel.InputBindings>
+
+
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding Descripcion}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Descripcion}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding NombreAsignatura}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="17.5" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding NombreMaestro}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding Aula}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="blue" FontSize="15" FontStyle="Italic" FontWeight="Bold" TextWrapping="Wrap"><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
+
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </ScrollViewer>
+                <ScrollViewer Grid.Column="4" VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl Margin="3" ItemsSource="{Binding Viernes}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,3" CornerRadius="10" Padding="3" BorderThickness="5" BorderBrush="#bc712d">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#7EADBF" Offset="0.0"/>
+                                            <GradientStop Color="#F2D1B3" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" Height="auto">
+                                        <StackPanel.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"></MouseBinding>
+                                        </StackPanel.InputBindings>
+
+
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding Descripcion}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Descripcion}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding NombreAsignatura}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="17.5" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding NombreMaestro}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding Aula}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="blue" FontSize="15" FontStyle="Italic" FontWeight="Bold" TextWrapping="Wrap"><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
+
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </ScrollViewer>
+                <ScrollViewer Grid.Column="5" VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl Margin="3" ItemsSource="{Binding Sabado}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,3" CornerRadius="10" Padding="3" BorderThickness="5" BorderBrush="#bc712d">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#7EADBF" Offset="0.0"/>
+                                            <GradientStop Color="#F2D1B3" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" Height="auto">
+                                        <StackPanel.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"></MouseBinding>
+                                        </StackPanel.InputBindings>
+
+
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding Descripcion}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Descripcion}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding NombreAsignatura}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="17.5" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding NombreMaestro}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding Aula}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="blue" FontSize="15" FontStyle="Italic" FontWeight="Bold" TextWrapping="Wrap"><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
+
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </ScrollViewer>
+                <ScrollViewer Grid.Column="6" VerticalScrollBarVisibility="Hidden">
+                    <ItemsControl Margin="3" ItemsSource="{Binding Domingo}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Margin="0,3" CornerRadius="10" Padding="3" BorderThickness="5" BorderBrush="#bc712d">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#7EADBF" Offset="0.0"/>
+                                            <GradientStop Color="#F2D1B3" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" Height="auto">
+                                        <StackPanel.InputBindings>
+                                            <MouseBinding Gesture="LeftClick" Command="{Binding Source={x:Reference Pantalla}, Path=DataContext.EliminarEditarCommand}"  CommandParameter="{Binding .}"></MouseBinding>
+                                        </StackPanel.InputBindings>
+
+
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding Descripcion}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Descripcion}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="DarkBlue" FontWeight="Black" FontSize="20" TextWrapping="Wrap" Text="{Binding NombreAsignatura}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="17.5" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding NombreMaestro}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock FontSize="15" FontWeight="DemiBold" TextWrapping="Wrap" Text="{Binding Aula}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding NombreAsignatura}" Value="">
+                                                            <Setter Property="Height" Value="0"></Setter>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+
+                                        <TextBlock Foreground="blue" FontSize="15" FontStyle="Italic" FontWeight="Bold" TextWrapping="Wrap"><Run Text="{Binding HoraInicio}"></Run>:00 - <Run Text="{Binding HoraFin}"></Run>:00</TextBlock>
+
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </ScrollViewer>
             </Grid>
         </DockPanel>
     </Grid>
